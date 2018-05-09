@@ -1419,7 +1419,7 @@ Scraper.prototype.scrapeAyalaMalls = function(code, exfunc) {
 Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfunc) {
     console.log("Scraping %s Cinemas@: %s", ctc_theaters, theater_code);
     var results = [];
-    var remote_url = 'https://www.clickthecity.com/movies/theaters/commercenter-cinemas';
+    var remote_url = 'https://www.clickthecity.com/movies/theaters/';
     var today = format("MM/dd/yyyy", new Date());
     theater_code = theater_code.slice(0, -3);
 
@@ -1427,31 +1427,18 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
         function get_movie_schedules(ctc_theater, next) {
             var ctc_remote_url = remote_url + ctc_theater;
             console.log("Connecting as of %s to ctc_remote_url: %s", today, ctc_remote_url);
-            request(remote_url, function(error, response, html) {
+            request(ctc_remote_url, function(error, response, html) {
                 if (!error && response.statusCode == 200) {
-                    console.log('loading data...');
                     var $ = cheerio.load(html);
                     var default_price = '0.00';
-                    var regex_show_time = /(\d|\d\d):\d\d(am|nn|pm|mn)/g;
-                    var movie_variant = '';
-                    var default_cinema = '';
+                    $('ul#cinemas').children().each(function(iter, el) {
+                        console.log('parsing data...');
+                        var movie_titles_array = [];
+                        var movie_show_times_array = [];
+                        var movie_variant = '';
+                        var cinema = $(this).find('h2 em').text().trim();
 
-                    $('div#theatersArea ul#cinemas li.cinema').each(function(iter, el) {
-                        var found;
-                        var title = $(this).find('div > a > span').text().trim();
-                        var show_time = '';
-                        var selected_gae_movie = scrapeutils.getSelectedGAEMovies(gae_movies, title);
-                        default_cinema = $(this).find('h2 em').text().trim();
-
-                        var data = scrapeutils.appendResults(selected_gae_movie, theater_code, default_cinema, today, show_time, default_price, movie_variant);
-                        results.push(data);
-
-                        //var movie_titles_array = [];
-                        //var movie_show_times_array = [];
-                        //var movie_variant = '';
-                        //var cinema = $(this).find('span.cinema h2 a.link em').text().trim();
-
-                        /*if(theater_code == 'TRI') {
+                        if(theater_code == 'TRI') {
                             cinema = cinema.replace('TriNoma', '');
                         } else if(theater_code == 'CMC') {
                             cinema = cinema.replace('Centrio', '')
@@ -1511,12 +1498,12 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
 
                         cinema = cinema.replace('Cinema', '').replace('Theatre', '').trim();
 
-                        $($(this).find('ul li span a')).each(function(index, value) {
+                        $($(this).find('div > a > span')).each(function(index, value) {
                             if(index > 0) {
                                 movie_titles_array.push($(this).text().trim());
                             }
                         });
-                        $($(this).find('ul li span div')).each(function(index, value) {
+                        $($(this).find('div.showtimes > span')).each(function(index, value) {
                             var show_times_split = $(this).text().trim().split('|');
                             var show_times = [];
 
@@ -1525,17 +1512,18 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                             }
                             movie_show_times_array.push(show_times);
                         });
-                        $(movie_titles_array).each(function(index, movie) {
-                            // var movie_title = movie.slice(0, -6).trim();
-                            var movie_title = movie.replace(/\(\d\d\d\d\)/g, '').trim();
+
+                        var movie_title = $(this).find('div > a > span').text().trim();
+                        $(movie_show_times_array).each(function(index, movie) {
                             var selected_gae_movie = scrapeutils.getSelectedGAEMovies(gae_movies, movie_title);
                             for(i=0; i<movie_show_times_array[index].length; i++) {
                                 var show_time = movie_show_times_array[index][i];
                                 var data = scrapeutils.appendResults(selected_gae_movie, theater_code, cinema, today, show_time, default_price, movie_variant);
                                 results.push(data);
                             }
-                        });*/
+                        });
                     });
+
                 } else {
                     var msg = "Connection error: " + error;
                     console.log(msg);
