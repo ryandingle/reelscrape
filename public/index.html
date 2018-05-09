@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>
+            Gmovies Schedules
+        </title>
+        <!--jQuery dependencies-->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/ui-darkness/jquery-ui.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <!--PQ Grid files-->
+        <link rel="stylesheet" href="assets/pqgrid.min.css" />
+        <script src="assets/pqgrid.min.js"></script>
+        <script src="assets/main.js"></script>
+        <script src="assets/jquery.cookie.js"></script>
+        <script src="assets/jQuery.bpopup.min.js"></script>
+        <link href="assets/main.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Loader -->
+        <div class="loader-bg invi">
+            <div class="loader-modal">
+                <h3 class="mall-name"></h3>
+                <p>Fetching Data...</p>
+            </div>
+        </div>
+        <!-- Loader -->
+        <div class="scheds-grid invi">
+			<div id="schedules_grid" style="margin:auto;"></div>
+        </div>
+
+        <div class="modal">
+            <!-- modal content-->
+        </div>
+        <div class='accordion mall-theater-list'>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>SM Cinemas</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMAU</span>
+                    <span class='ctc' data-ctc="SMAU">C</span>
+                    SM Aura
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBD</span>
+                    <span class='ctc' data-ctc="SMBD">C</span>
+                    SM Bacolod
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCB</span>
+                    <span class='ctc' data-ctc="SMCB">C</span>
+                    SM Bacoor
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBG</span>
+                    <span class='ctc' data-ctc="SMBG">C</span>
+                    SM Baguio
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBL</span>
+                    <span class='ctc' data-ctc="SMBL">C</span>
+                    SM Baliwag
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBA</span>
+                    <span class='ctc' data-ctc="SMBA">C</span>
+                    SM Batangas
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBF</span>
+                    <span class='ctc' data-ctc="SMBF">C</span>
+                    SM BF Paranaque
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMBT</span>
+                    <span class='ctc' data-ctc="SMBT">C</span>
+                    SM Bicutan
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCDO</span>
+                    <span class='ctc' data-ctc="SMCDO">C</span>
+                    SM Cagayan De Oro
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCL</span>
+                    <span class='ctc' data-ctc="SMCL">C</span>
+                    SM Calamba
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCA</span>
+                    <span class='ctc' data-ctc="SMCA">C</span>
+                    SM Cauayan
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCEB</span>
+                    <span class='ctc' data-ctc="SMCEB">C</span>
+                    SM Cebu
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCLA</span>
+                    <span class='ctc' data-ctc="SMCLA">C</span>
+                    SM Clark
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCON</span>
+                    <span class='ctc' data-ctc="SMCON">C</span>
+                    SM Consolacion
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMDM</span>
+                    <span class='ctc' data-ctc="SMDM">C</span>
+                    SM Dasmarinas
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMDAV</span>
+                    <span class='ctc' data-ctc="SMDAV">C</span>
+                    SM Davao
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCF</span>
+                    <span class='ctc' data-ctc="SMCF">C</span>
+                    SM Fairview
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMGS</span>
+                    <span class='ctc' data-ctc="SMGS">C</span>
+                    SM General Santos
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCI</span>
+                    <span class='ctc' data-ctc="SMCI">C</span>
+                    SM Iloilo
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMDLA</span>
+                    <span class='ctc' data-ctc="SMDLA">C</span>
+                    SM Lanang
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMLP</span>
+                    <span class='ctc' data-ctc="SMLP">C</span>
+                    SM Lipa
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMLC</span>
+                    <span class='ctc' data-ctc="SMLC">C</span>
+                    SM Lucena
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMOA</span>
+                    <span class='ctc' data-ctc="SMMOA">C</span>
+                    SM Mall Of Asia
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMCM</span>
+                    <span class='ctc' data-ctc="SMCM">C</span>
+                    SM Manila
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMK</span>
+                    <span class='ctc' data-ctc="SMMK">C</span>
+                    SM Marikina
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMR</span>
+                    <span class='ctc' data-ctc="SMMR">C</span>
+                    SM Marilao
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMS</span>
+                    <span class='ctc' data-ctc="SMMS">C</span>
+                    SM Masinag
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMM</span>
+                    <span class='ctc' data-ctc="SMMM">C</span>
+                    SM Megamall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMML</span>
+                    <span class='ctc' data-ctc="SMML">C</span>
+                    SM Molino
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMMT</span>
+                    <span class='ctc' data-ctc="SMMT">C</span>
+                    SM Muntinlupa
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMNG</span>
+                    <span class='ctc' data-ctc="SMNG">C</span>
+                    SM Naga
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMNE</span>
+                    <span class='ctc' data-ctc="SMNE">C</span>
+                    SM North Edsa
+                </li>
+             </ul>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMNV</span>
+                    <span class='ctc' data-ctc="SMNV">C</span>
+                    SM Novaliches
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMOLO</span>
+                    <span class='ctc' data-ctc="SMOLO">C</span>
+                    SM Olongapo
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMPAM</span>
+                    <span class='ctc' data-ctc="SMPAM">C</span>
+                    SM Pampanga
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMKL</span>
+                    <span class='ctc' data-ctc="SMKL">C</span>
+                    SM Podium
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMRS</span>
+                    <span class='ctc' data-ctc="SMRS">C</span>
+                    SM Rosales
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMRO</span>
+                    <span class='ctc' data-ctc="SMRO">C</span>
+                    SM Rosario
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMSFP</span>
+                    <span class='ctc' data-ctc="SMSFP">C</span>
+                    SM San Fernando
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMSL</span>
+                    <span class='ctc' data-ctc="SMSL">C</span>
+                    SM San Lazaro
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-sm'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-sm'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMPB</span>
+                    <span class='ctc' data-ctc="SMPB">C</span>
+                    SM San Pablo
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMSTH</span>
+                    <span class='ctc' data-ctc="SMSTH">C</span>
+                    SM Southmall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMST</span>
+                    <span class='ctc' data-ctc="SMST">C</span>
+                    SM Sta. Mesa
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMSR</span>
+                    <span class='ctc' data-ctc="SMSR">C</span>
+                    SM Sta. Rosa
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMSC</span>
+                    <span class='ctc' data-ctc="SMSC">C</span>
+                    SM Sucat
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMTT</span>
+                    <span class='ctc' data-ctc="SMTT">C</span>
+                    SM Taytay
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMTL</span>
+                    <span class='ctc' data-ctc="SMTL">C</span>
+                    SM Tarlac
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SMVL</span>
+                    <span class='ctc' data-ctc="SMVL">C</span>
+                    SM Valenzuela
+                </li>
+            </ul>
+        </div>
+        <div class='accordion mall-theater-list'>
+            <ul class='pull-left accordion-item accordion-ayalamalls'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-ayalamalls'>Ayala Malls</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>G4</span>
+                    <span class='ctc' data-ctc="G4">C</span>
+                    Glorietta 4
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GB1</span>
+                    <span class='ctc' data-ctc="GB1">C</span>
+                    Greenbelt 1
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GB3</span>
+                    <span class='ctc' data-ctc="GB3">C</span>
+                    Greenbelt 3
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>ATC</span>
+                    <span class='ctc' data-ctc="ATC">C</span>
+                    Alabang Town Center
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-ayalamalls'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-ayalamalls'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>ACC</span>
+                    <span class='ctc' data-ctc="ACC">C</span>
+                    Ayala Cebu Center
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>M2</span>
+                    <span class='ctc' data-ctc="M2">C</span>
+                    Market! Market!
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>MRQ</span>
+                    <span class='ctc' data-ctc="MRQ">C</span>
+                    Marquee
+                </li>
+
+            </ul>
+            <ul class='pull-left accordion-item accordion-ayalamalls'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-ayalamalls'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>ABRZ</span>
+                    <span class='ctc' data-ctc="ABRZ">C</span>
+                    Abreeza
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>HPC</span>
+                    <span class='ctc' data-ctc="HPC">C</span>
+                    Harbor Point
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>CMC</span>
+                    <span class='ctc' data-ctc="CMC">C</span>
+                    Centrio
+                </li>
+
+            </ul>
+            <ul class='pull-left accordion-item accordion-ayalamalls'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-ayalamalls'>&nbsp;</a>
+                </li>
+                <li class="list-item">
+                    <span class='theater-code'>TRI</span>
+                    <span class='ctc' data-ctc='TRI'>C</span>
+                    Trinoma
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>FTC</span>
+                    <span class='ctc' data-ctc="FTC">C</span>
+                    Fairview Terraces
+                </li>
+
+                <li class='list-item'>
+                    <span class='theater-code'>BHS</span>
+                    <span class='ctc' data-ctc="BHS">C</span>
+                    Bonifacio High Street
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-greenhills'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-greenhills'>Greenhills</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GHA</span>
+                    <span class='ctc' data-ctc="GHA">C</span>
+                    Greenhills Atmos
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GHP</span>
+                    <span class='ctc' data-ctc="GHP">C</span>
+                    Greenhills Promenade
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GHT</span>
+                    <span class='ctc' data-ctc="GHT">C</span>
+                    Greenhills Theater
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-others'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-others'>Others</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>FSA</span>
+                    <span class='ctc' data-ctc="FSA">C</span>
+                    Festival Mall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>GWY</span>
+                    <span class='ctc' data-ctc="GWY">C</span>
+                    Gateway Mall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>RWPP</span>
+                    <span class='ctc' data-ctc="RWPP">C</span>
+                    Power Plant Mall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>SHANG</span>
+                    <span class='ctc' data-ctc="SHANG">C</span>
+                    Edsa Shangri-La
+                </li>
+            </ul>
+        </div>
+        <div class='accordion mall-theater-list'>
+            <ul class='pull-left accordion-item accordion-megaworld'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-megaworld'>Megaworld</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>EWCW</span>
+                    <span class='ctc' data-ctc="EWCW">C</span>
+                    Eastwood Citywalk
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>EWLCT</span>
+                    <span class='ctc' data-ctc="EWLCT">C</span>
+                    Megaworld Lucky Chinatown
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-megaworld'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-megaworld'>&nbsp</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>EWM</span>
+                    <span class='ctc' data-ctc="EWM">C</span>
+                    Megaworld Eastwood Mall
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>NMRW</span>
+                    <span class='ctc' data-ctc="NMRW">C</span>
+                    Megaworld Newport Mall
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-robinsons'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-robinsons'>Robinsons</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>RMGAL</span>
+                    <span class='ctc' data-ctc="RMGAL">C</span>
+                    Robinsons Galleria
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>RMMAG</span>
+                    <span class='ctc' data-ctc="RMMAG">C</span>
+                    Robinsons Magnolia
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-robinsons'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-robinsons'>&nbsp;</a>
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>RMMNL</span>
+                    <span class='ctc' data-ctc="RMMNL">C</span>
+                    Robinsons Manila
+                </li>
+                <li class='list-item'>
+                    <span class='theater-code'>RMSTM</span>
+                    <span class='ctc' data-ctc="RMSTM">C</span>
+                    Robinsons Starmills
+                </li>
+            </ul>
+            <ul class='pull-left accordion-item accordion-cinema2000'>
+                <li class='list-title'>
+                    <a href='#' class='title-toggle title-cinema2000'>Cinema 2000</a>
+                </li>
+                
+                <li class='list-item'>
+                    <span class='theater-code'>CCECCTC</span>
+                    <span class='ctc' data-ctc="CCEC">C</span>
+                    Commercenter Cinemas
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
