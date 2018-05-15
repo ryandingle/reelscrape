@@ -1431,96 +1431,107 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                 if (!error && response.statusCode == 200) {
                     var $ = cheerio.load(html);
                     var default_price = '0.00';
-                    $('ul#cinemas').children().each(function(iter, el) {
-                        console.log('parsing data...');
-                        var movie_titles_array = [];
-                        var movie_show_times_array = [];
-                        var movie_variant = '';
-                        var cinema = $(this).find('h2 em').text().trim();
+                    $('ul#cinemas').find('li').each(function(iter, el) {
+                        $(this).find('ul li').each(function(iter2, el2) {
+                            console.log('parsing data...');
+                            var movie_titles_array = [];
+                            var movie_show_times_array = [];
+                            var movie_variant = '';
+                            var cinema = $(this).find('h2 em').text().trim();
 
-                        if(theater_code == 'TRI') {
-                            cinema = cinema.replace('TriNoma', '');
-                        } else if(theater_code == 'CMC') {
-                            cinema = cinema.replace('Centrio', '')
-                        } else if(theater_code == 'HPC') {
-                            cinema = cinema.replace('Harbor Point', '')
-                        } else if(theater_code == 'RWPP') {
-                            cinema = cinema.replace('Power Plant', '');
-                        } else if(theater_code == 'GWY') {
-                            cinema = cinema.replace('Gateway Cineplex', '').replace('(Platinum Cinema)', '');
-                        } else if(theater_code == 'SHANG') {
-                            cinema = cinema.replace('Shangri-la Plaza', '');
-                        } else if(theater_code == 'EWLCT') {
-                            cinema = cinema.replace('Lucky Chinatown', '');
-                        } else if(theater_code == 'RMMNL') {
-                            cinema = cinema.replace('Robinsons Manila', '').replace('(Midtown)', '').replace('(Pedro Gil)', '');
-                        } else if(theater_code == 'FSA') {
-                            cinema = cinema.replace('Festival', '');
-                        } else if(theater_code == 'NMRW') {
-                            cinema = cinema.replace('Newport', '');
-                        } else if(theater_code == 'SMMOA') {
-                            cinema = cinema.replace('SM Mall Of Asia', '').replace('Premiere', 'Premier');
-                        } else if(theater_code == 'GHA' || theater_code == 'GHP' || theater_code == 'GHT') {
-                            cinema = cinema.replace('Greenhills Theater Mall', '');
-                        } else if(theater_code == 'M2') {
-                            cinema = cinema.replace('Market Market', '');
-                        } else if(theater_code == 'RMSTM') {
-                            cinema = cinema.replace('Robinsons Starmills', '');
-                        } else if(theater_code == 'SMCLA') {
-                            cinema = cinema.replace('D-Cinema', '3');
-                        } else if(theater_code == 'BHS') {
-                            cinema = cinema.replace('(ATMOS)', '');
-                        } else if(theater_code == 'SMDM') {
-                            cinema = cinema.replace('SM City Dasma', '');
-                        } else if(theater_code == 'SMCI') {
-                            cinema = cinema.replace('D-Cinema', '5');
-                        } else if(theater_code == 'SMSR') {
-                            cinema = cinema.replace('SM Sta. Rosa', '');
-                        } else if(theater_code == 'SMTT') {
-                            cinema = cinema.replace('SM Taytay', '');
-                        } else if(theater_code == 'SMMT') {
-                            cinema = cinema.replace('SM Muntinlupa', '');
-                        }
-
-                        if(theater_code == 'SMSTH' || theater_code == 'SMKL') {
-                            cinema = cinema.replace('Digital Theater', '1');
-                        } else if(theater_code == 'SMBD') {
-                            cinema = cinema.replace('Digital Theater', '2');
-                        } else if(theater_code == 'SMCB') {
-                            cinema = cinema.replace('Digital Theater', '5');
-                        } else if(theater_code == 'SMCL') {
-                            cinema = cinema.replace('Digital Theater', '4');
-                        } else if(theater_code == 'SMLP' || theater_code == 'SMSR') {
-                            cinema = cinema.replace('Digital Theater', '3');
-                        } else {
-                            cinema = cinema.replace('Digital Theater', '');
-                        }
-
-                        cinema = cinema.replace('Cinema', '').replace('Theatre', '').trim();
-
-                        $($(this).find('div > a > span')).each(function(index, value) {
-                            if(index > 0) {
-                                movie_titles_array.push($(this).text().trim());
+                            if(theater_code == 'TRI') {
+                                cinema = cinema.replace('TriNoma', '');
+                            } else if(theater_code == 'CMC') {
+                                cinema = cinema.replace('Centrio', '')
+                            } else if(theater_code == 'HPC') {
+                                cinema = cinema.replace('Harbor Point', '')
+                            } else if(theater_code == 'RWPP') {
+                                cinema = cinema.replace('Power Plant', '');
+                            } else if(theater_code == 'GWY') {
+                                cinema = cinema.replace('Gateway Cineplex', '').replace('(Platinum Cinema)', '');
+                            } else if(theater_code == 'SHANG') {
+                                cinema = cinema.replace('Shangri-la Plaza', '');
+                            } else if(theater_code == 'EWLCT') {
+                                cinema = cinema.replace('Lucky Chinatown', '');
+                            } else if(theater_code == 'RMMNL') {
+                                cinema = cinema.replace('Robinsons Manila', '').replace('(Midtown)', '').replace('(Pedro Gil)', '');
+                            } else if(theater_code == 'FSA') {
+                                cinema = cinema.replace('Festival', '');
+                            } else if(theater_code == 'NMRW') {
+                                cinema = cinema.replace('Newport', '');
+                            } else if(theater_code == 'SMMOA') {
+                                cinema = cinema.replace('SM Mall Of Asia', '').replace('Premiere', 'Premier');
+                            } else if(theater_code == 'GHA' || theater_code == 'GHP' || theater_code == 'GHT') {
+                                cinema = cinema.replace('Greenhills Theater Mall', '');
+                            } else if(theater_code == 'M2') {
+                                cinema = cinema.replace('Market Market', '');
+                            } else if(theater_code == 'RMSTM') {
+                                cinema = cinema.replace('Robinsons Starmills', '');
+                            } else if(theater_code == 'SMCLA') {
+                                cinema = cinema.replace('D-Cinema', '3');
+                            } else if(theater_code == 'BHS') {
+                                cinema = cinema.replace('(ATMOS)', '');
+                            } else if(theater_code == 'SMDM') {
+                                cinema = cinema.replace('SM City Dasma', '');
+                            } else if(theater_code == 'SMCI') {
+                                cinema = cinema.replace('D-Cinema', '5');
+                            } else if(theater_code == 'SMSR') {
+                                cinema = cinema.replace('SM Sta. Rosa', '');
+                            } else if(theater_code == 'SMTT') {
+                                cinema = cinema.replace('SM Taytay', '');
+                            } else if(theater_code == 'SMMT') {
+                                cinema = cinema.replace('SM Muntinlupa', '');
                             }
-                        });
-                        $($(this).find('div.showtimes > span')).each(function(index, value) {
-                            var show_times_split = $(this).text().trim().split('|');
-                            var show_times = [];
 
-                            for(i=0; i<show_times_split.length; i++) {
-                                show_times.push(scrapeutils.fixTimeFormat(show_times_split[i].trim()));
+                            if(theater_code == 'SMSTH' || theater_code == 'SMKL') {
+                                cinema = cinema.replace('Digital Theater', '1');
+                            } else if(theater_code == 'SMBD') {
+                                cinema = cinema.replace('Digital Theater', '2');
+                            } else if(theater_code == 'SMCB') {
+                                cinema = cinema.replace('Digital Theater', '5');
+                            } else if(theater_code == 'SMCL') {
+                                cinema = cinema.replace('Digital Theater', '4');
+                            } else if(theater_code == 'SMLP' || theater_code == 'SMSR') {
+                                cinema = cinema.replace('Digital Theater', '3');
+                            } else {
+                                cinema = cinema.replace('Digital Theater', '');
                             }
-                            movie_show_times_array.push(show_times);
-                        });
 
-                        var movie_title = $(this).find('div > a > span').text().trim();
-                        $(movie_show_times_array).each(function(index, movie) {
-                            var selected_gae_movie = scrapeutils.getSelectedGAEMovies(gae_movies, movie_title);
-                            for(i=0; i<movie_show_times_array[index].length; i++) {
-                                var show_time = movie_show_times_array[index][i];
-                                var data = scrapeutils.appendResults(selected_gae_movie, theater_code, cinema, today, show_time, default_price, movie_variant);
-                                results.push(data);
-                            }
+                            cinema = cinema.replace('Cinema', '').replace('Theatre', '').trim();
+
+                            $($(this).find('div > a > span')).each(function(index, value) {
+                                if(index > 0) {
+                                    movie_titles_array.push($(this).text().trim());
+                                    console.log('title'+$(this).text().trim());
+                                }
+                            });
+
+                            $($(this).find('div.showtimes > span')).each(function(index, value) {
+                                var show_times_split = $(this).text().trim().split('|');
+                                var show_times = [];
+
+                                for(i=0; i<show_times_split.length; i++) {
+                                    show_times.push(scrapeutils.fixTimeFormat(show_times_split[i].trim()));
+                                }
+                                movie_show_times_array.push(show_times);
+                            });
+
+                            var movie_title = '';
+
+                            $(this).find('div > a > span').each(function(i, val){
+                                if(i == 0) {
+                                    movie_title = $(this).text().trim();
+                                }
+                            });
+
+                            $(movie_show_times_array).each(function(index, movie) {
+                                var selected_gae_movie = scrapeutils.getSelectedGAEMovies(gae_movies, movie_title);
+                                for(i=0; i<movie_show_times_array[index].length; i++) {
+                                    var show_time = movie_show_times_array[index][i];
+                                    var data = scrapeutils.appendResults(selected_gae_movie, theater_code, cinema, today, show_time, default_price, movie_variant);
+                                    results.push(data);
+                                }
+                            });
                         });
                     });
 
