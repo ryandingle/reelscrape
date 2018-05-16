@@ -1432,12 +1432,12 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                     var $ = cheerio.load(html);
                     var default_price = '0.00';
                     $('ul#cinemas').find('li').each(function(iter, el) {
+                        var cinema = $(this).find('h2 em').text().trim();
                         $(this).find('ul li').each(function(iter2, el2) {
                             console.log('parsing data...');
                             var movie_titles_array = [];
                             var movie_show_times_array = [];
                             var movie_variant = '';
-                            var cinema = $(this).find('h2 em').text().trim();
 
                             if(theater_code == 'TRI') {
                                 cinema = cinema.replace('TriNoma', '');
