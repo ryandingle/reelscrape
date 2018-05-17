@@ -1447,6 +1447,8 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                                 cinema = cinema.replace('Harbor Point', '')
                             } else if(theater_code == 'RWPP') {
                                 cinema = cinema.replace('Power Plant', '');
+                                cinema = cinema.replace('Dolby Atmos ', '');
+                                cinema = cinema.replace('VIP ', '');
                             } else if(theater_code == 'GWY') {
                                 cinema = cinema.replace('Gateway Cineplex', '').replace('(Platinum Cinema)', '');
                             } else if(theater_code == 'SHANG') {
