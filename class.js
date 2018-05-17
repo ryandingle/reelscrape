@@ -1499,6 +1499,7 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                                 cinema = cinema.replace('Digital Theater', '');
                             }
 
+                            cinema = cinema.replace('Ultra ', '');
                             cinema = cinema.replace('Cinema', '').replace('Theatre', '').trim();
 
                             $($(this).find('div > a > span')).each(function(index, value) {
@@ -1523,6 +1524,8 @@ Scraper.prototype.scrapeClickTheCity = function(ctc_theaters, theater_code, exfu
                             $(this).find('div > a > span').each(function(i, val){
                                 if(i == 0) {
                                     movie_title = $(this).text().trim();
+                                    movie_title = movie_title.replace('(ATMOS) ', '');
+                                    movie_title = movie_title.replace('(2D/4DX) ', '');
                                 }
                             });
 
